@@ -148,11 +148,7 @@ void ABasePlayerState::MaxHealthChanged(const FOnAttributeChangeData &Data)
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        UBaseHUDWidget* HUD = PC->GetHUD();
-        if(HUD)
-        {
-            HUD->SetMaxHealth(MaxHealth);
-        }
+        
     }
 }
 
@@ -162,11 +158,7 @@ void ABasePlayerState::HealthRegenRateChanged(const FOnAttributeChangeData &Data
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        UBaseHUDWidget* HUD = PC->GetHUD();
-        if(HUD)
-        {
-            HUD->SetHealthRegenRate(HealthRegenRate);
-        }
+       
     }
 }
 
@@ -199,11 +191,7 @@ void ABasePlayerState::MaxManaChanged(const FOnAttributeChangeData &Data)
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        UBaseHUDWidget* HUD = PC->GetHUD();
-        if(HUD)
-        {
-            HUD->SetMaxMana(MaxMana);
-        }
+        
     }
 }
 
@@ -213,11 +201,7 @@ void ABasePlayerState::ManaRegenRateChanged(const FOnAttributeChangeData &Data)
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        UBaseHUDWidget* HUD = PC->GetHUD();
-        if(HUD)
-        {
-            HUD->SetManaRegenRate(ManaRegenRate);
-        }
+        
     }
 }
 
@@ -250,11 +234,7 @@ void ABasePlayerState::MaxStaminaChanged(const FOnAttributeChangeData &Data)
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        UBaseHUDWidget* HUD = PC->GetHUD();
-        if(HUD)
-        {
-            HUD->SetMaxStamina(MaxStamina);
-        }
+        
     }
 }
 
@@ -264,11 +244,7 @@ void ABasePlayerState::StaminaRegenRateChanged(const FOnAttributeChangeData &Dat
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        UBaseHUDWidget* HUD = PC->GetHUD();
-        if(HUD)
-        {
-            HUD->SetStaminaRegenRate(StaminaRegenRate);
-        }
+        
     }
 }
 
@@ -278,10 +254,6 @@ void ABasePlayerState::CharacterLevelChanged(const FOnAttributeChangeData &Data)
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        UBaseHUDWidget* HUD = PC->GetHUD();
-        if(HUD)
-        {
-            HUD->SetCharacterLevel(CharacterLevel);
-        }
+        
     }
 }

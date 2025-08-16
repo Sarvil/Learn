@@ -86,7 +86,10 @@
 			},
 			{
 				"label": "Learn Mac DebugGame Build",
-				"group": "build",
+				"group": {
+					"kind": "build",
+					"isDefault": true
+				},
 				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
 				"args": [
 					"Learn",

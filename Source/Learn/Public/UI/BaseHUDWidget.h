@@ -6,6 +6,9 @@
 #include "Blueprint/UserWidget.h"
 #include "BaseHUDWidget.generated.h"
 
+class UFloatingStatusBarWidget;
+class UOverlayWidgetController;
+struct FWidgetControllerParams;
 /**
  * 
  */
@@ -54,4 +57,5 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetCharacterLevel(int32 CharacterLevel);
+
 };

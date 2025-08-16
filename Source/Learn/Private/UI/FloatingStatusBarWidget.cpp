@@ -3,3 +3,8 @@
 
 #include "UI/FloatingStatusBarWidget.h"
 
+void UFloatingStatusBarWidget::SetWidgetController(UObject* InWidgetController)
+{
+    WidgetController = InWidgetController;
+    WidgetControllerSet();
+}

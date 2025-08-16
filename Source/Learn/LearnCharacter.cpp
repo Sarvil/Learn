@@ -20,6 +20,7 @@
 #include "Player/BasePlayerState.h"
 #include "UObject/ConstructorHelpers.h"
 #include "UI/FloatingStatusBarWidget.h"
+#include "UI/BaseHUD.h"
 #include "Components/WidgetComponent.h"
 
 ALearnCharacter::ALearnCharacter()
@@ -148,8 +149,12 @@ void ALearnCharacter::OnRep_PlayerState()
 		ABasePlayerController* PC = Cast<ABasePlayerController>(GetController());
 		if(PC)
 		{
-			PC->CreateHUD();
+			if(ABaseHUD* BaseHUD = Cast<ABaseHUD>(PC->GetHUD()))
+			{
+				BaseHUD->InitOverlay(PC, PS, AbilitySystemComponent.Get(), BaseAttributeSet.Get());
+			}
 		}
+
 	}
 }
 
@@ -251,7 +256,10 @@ void ALearnCharacter::PossessedBy(AController *NewController)
 		ABasePlayerController* PC = Cast<ABasePlayerController>(GetController());
 		if(PC)
 		{
-			PC->CreateHUD();
+			if(ABaseHUD* BaseHUD = Cast<ABaseHUD>(PC->GetHUD()))
+			{
+				BaseHUD->InitOverlay(PC, PS, AbilitySystemComponent.Get(), BaseAttributeSet.Get());
+			}
 		}
 	}
 }

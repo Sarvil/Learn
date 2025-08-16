@@ -8,6 +8,7 @@
 
 class UInputMappingContext;
 class UUserWidget;
+class ABaseHUD;
 
 /**
  * 
@@ -19,18 +20,7 @@ class LEARN_API ABasePlayerController : public APlayerController
 	
 public:
 
-	void CreateHUD();
-
-	class UBaseHUDWidget* GetHUD();
-
 protected:
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "UI")
-	TSubclassOf<class UBaseHUDWidget> UIHUDWidgetClass;
-
-	UPROPERTY(BlueprintReadWrite, Category = "UI")
-	class UBaseHUDWidget* UIHUDWidget;
-
 	virtual void OnPossess(APawn* InPawn) override;
 
 	virtual void OnRep_PlayerState() override;

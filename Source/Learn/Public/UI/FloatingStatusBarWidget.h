@@ -16,6 +16,12 @@ class LEARN_API UFloatingStatusBarWidget : public UUserWidget
 	
 public:
 
+	UFUNCTION(BlueprintCallable)
+	void SetWidgetController(UObject* InWidgetController);
+
+	UPROPERTY(BlueprintReadOnly)
+	TObjectPtr<UObject> WidgetController;
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetHealthPercentage(float HealthPercentage);
 
@@ -24,4 +30,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetStaminaPercentage(float StaminaPercentage);
+
+protected:
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void WidgetControllerSet();
 };

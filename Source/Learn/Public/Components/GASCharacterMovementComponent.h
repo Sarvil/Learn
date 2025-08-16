@@ -13,9 +13,5 @@ UCLASS()
 class LEARN_API UGASCharacterMovementComponent : public UCharacterMovementComponent
 {
 	GENERATED_BODY()
-	
-	public:
-		UGASCharacterMovementComponent();
-
 		
 };
