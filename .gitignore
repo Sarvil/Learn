@@ -1,0 +1,19 @@
+/Saved
+/Content
+/Config
+/Config
+/DerivedDataCache
+/Learn (Mac).xcworkspace
+.vscode
+/Intermediate
+/Build
+/Binaries
+.vs
+*.sln
+*.xcodeproj
+*.xcworkspace
+*.suo
+*.sdf
+*.opensdf
+*.opendb
+*.VC.db
