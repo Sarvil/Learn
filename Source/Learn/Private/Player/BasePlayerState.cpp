@@ -134,7 +134,6 @@ void ABasePlayerState::HealthChanged(const FOnAttributeChangeData &Data)
             UBaseHUDWidget* HUD = PC->GetHUD();
 		    if (HUD)
 		    {
-                UE_LOG(LogTemp, Display, TEXT("Current Health = %f"), Health / GetMaxHealth());
 			    HUD->SetCurrentHealth(Health);
                 HUD->SetHealthPercentage(Health / GetMaxHealth());
 		    }
@@ -192,6 +191,16 @@ void ABasePlayerState::ManaChanged(const FOnAttributeChangeData &Data)
 			HeroFloatingStatusBar->SetManaPercentage(Mana / GetMaxMana());
 		}
     }
+    ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
+    if(PC)
+    {
+        UBaseHUDWidget* HUD = PC->GetHUD();
+		if (HUD)
+		{
+			HUD->SetCurrentMana(Mana);
+            HUD->SetManaPercentage(Mana / GetMaxMana());
+		}
+    }
 }
 
 void ABasePlayerState::MaxManaChanged(const FOnAttributeChangeData &Data)
@@ -213,6 +222,7 @@ void ABasePlayerState::MaxManaChanged(const FOnAttributeChangeData &Data)
 		if (HUD)
 		{
 			HUD->SetMaxMana(MaxMana);
+            HUD->SetManaPercentage(GetMana() / MaxMana);
 		}
     }
 }
@@ -240,7 +250,19 @@ void ABasePlayerState::StaminaChanged(const FOnAttributeChangeData &Data)
         UFloatingStatusBarWidget* HeroFloatingStatusBar = Hero->GetFloatingStatusBar();
         if (HeroFloatingStatusBar)
 		{
+            UE_LOG(LogTemp, Display, TEXT("Current Stamina = %f"), Stamina);
+            UE_LOG(LogTemp, Display, TEXT("Max Stamina = %f"), GetMaxStamina());
 			HeroFloatingStatusBar->SetStaminaPercentage(Stamina / GetMaxStamina());
+		}
+    }
+    ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
+    if(PC)
+    {
+        UBaseHUDWidget* HUD = PC->GetHUD();
+		if (HUD)
+		{
+			HUD->SetCurrentStamina(Stamina);
+            HUD->SetStaminaPercentage(Stamina / GetMaxStamina());
 		}
     }
 }
@@ -254,6 +276,8 @@ void ABasePlayerState::MaxStaminaChanged(const FOnAttributeChangeData &Data)
         UFloatingStatusBarWidget* HeroFloatingStatusBar = Hero->GetFloatingStatusBar();
         if (HeroFloatingStatusBar)
 		{
+            UE_LOG(LogTemp, Display, TEXT("Current Stamina = %f"), GetStamina());
+            UE_LOG(LogTemp, Display, TEXT("Max Stamina = %f"), MaxStamina);
 			HeroFloatingStatusBar->SetStaminaPercentage(GetStamina() / MaxStamina);
 		}
     }
@@ -264,6 +288,7 @@ void ABasePlayerState::MaxStaminaChanged(const FOnAttributeChangeData &Data)
 		if (HUD)
 		{
 			HUD->SetMaxStamina(MaxStamina);
+            HUD->SetStaminaPercentage(GetStamina() / MaxStamina);
 		}
     }
 }

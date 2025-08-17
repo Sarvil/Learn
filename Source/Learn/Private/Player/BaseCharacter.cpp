@@ -69,7 +69,7 @@ float ABaseCharacter::GetMaxHealth() const
 {
 	if(BaseAttributeSet.IsValid())
 	{
-		return BaseAttributeSet->GetHealth();
+		return BaseAttributeSet->GetMaxHealth();
 	}
 	return 0.0f;
 }
@@ -78,7 +78,7 @@ float ABaseCharacter::GetMana() const
 {
 	if(BaseAttributeSet.IsValid())
 	{
-		return BaseAttributeSet->GetHealth();
+		return BaseAttributeSet->GetMana();
 	}
 	return 0.0f;
 }
@@ -87,7 +87,7 @@ float ABaseCharacter::GetMaxMana() const
 {
 	if(BaseAttributeSet.IsValid())
 	{
-		return BaseAttributeSet->GetHealth();
+		return BaseAttributeSet->GetMaxMana();
 	}
 	return 0.0f;
 }
@@ -96,7 +96,7 @@ float ABaseCharacter::GetStamina() const
 {
 	if(BaseAttributeSet.IsValid())
 	{
-		return BaseAttributeSet->GetHealth();
+		return BaseAttributeSet->GetStamina();
 	}
 	return 0.0f;
 }
@@ -104,7 +104,7 @@ float ABaseCharacter::GetMaxStamina() const
 {
 	if(BaseAttributeSet.IsValid())
 	{
-		return BaseAttributeSet->GetHealth();
+		return BaseAttributeSet->GetMaxStamina();
 	}
 	return 0.0f;
 }
@@ -113,7 +113,7 @@ float ABaseCharacter::GetMoveSpeed() const
 {
 	if(BaseAttributeSet.IsValid())
 	{
-		return BaseAttributeSet->GetHealth();
+		return BaseAttributeSet->GetMoveSpeed();
 	}
 	return 0.0f;
 }

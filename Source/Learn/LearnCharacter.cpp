@@ -181,6 +181,7 @@ void ALearnCharacter::InitializeFloatingStatusBar()
 				// Setup the floating status bar
 				UIFloatingStatusBar->SetHealthPercentage(GetHealth() / GetMaxHealth());
 				UIFloatingStatusBar->SetManaPercentage(GetMana() / GetMaxMana());
+				UIFloatingStatusBar->SetStaminaPercentage(GetStamina() / GetMaxStamina());
 			}
 		}
 	}
