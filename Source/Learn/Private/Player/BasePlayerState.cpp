@@ -88,8 +88,6 @@ float ABasePlayerState::GetArmor() const
     return BaseAttributeSet->GetArmor();
 }
 
-
-
 float ABasePlayerState::GetCharacterLevel() const
 {
     return BaseAttributeSet->GetCharacterLevel();
@@ -130,6 +128,17 @@ void ABasePlayerState::HealthChanged(const FOnAttributeChangeData &Data)
 		{
 			HeroFloatingStatusBar->SetHealthPercentage(Health / GetMaxHealth());
 		}
+        ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
+        if(PC)
+        {
+            UBaseHUDWidget* HUD = PC->GetHUD();
+		    if (HUD)
+		    {
+                UE_LOG(LogTemp, Display, TEXT("Current Health = %f"), Health / GetMaxHealth());
+			    HUD->SetCurrentHealth(Health);
+                HUD->SetHealthPercentage(Health / GetMaxHealth());
+		    }
+        }
     }
 }
 
@@ -148,7 +157,12 @@ void ABasePlayerState::MaxHealthChanged(const FOnAttributeChangeData &Data)
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        
+        UBaseHUDWidget* HUD = PC->GetHUD();
+		if (HUD)
+		{
+			HUD->SetMaxHealth(MaxHealth);
+            HUD->SetHealthPercentage(GetHealth() / MaxHealth);
+		}
     }
 }
 
@@ -158,7 +172,11 @@ void ABasePlayerState::HealthRegenRateChanged(const FOnAttributeChangeData &Data
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-       
+       UBaseHUDWidget* HUD = PC->GetHUD();
+		if (HUD)
+		{
+			HUD->SetHealthRegenRate(HealthRegenRate);
+		}
     }
 }
 
@@ -191,7 +209,11 @@ void ABasePlayerState::MaxManaChanged(const FOnAttributeChangeData &Data)
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        
+        UBaseHUDWidget* HUD = PC->GetHUD();
+		if (HUD)
+		{
+			HUD->SetMaxMana(MaxMana);
+		}
     }
 }
 
@@ -201,7 +223,11 @@ void ABasePlayerState::ManaRegenRateChanged(const FOnAttributeChangeData &Data)
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        
+        UBaseHUDWidget* HUD = PC->GetHUD();
+		if (HUD)
+		{
+			HUD->SetManaRegenRate(ManaRegenRate);
+		}
     }
 }
 
@@ -234,7 +260,11 @@ void ABasePlayerState::MaxStaminaChanged(const FOnAttributeChangeData &Data)
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        
+        UBaseHUDWidget* HUD = PC->GetHUD();
+		if (HUD)
+		{
+			HUD->SetMaxStamina(MaxStamina);
+		}
     }
 }
 
@@ -244,7 +274,11 @@ void ABasePlayerState::StaminaRegenRateChanged(const FOnAttributeChangeData &Dat
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        
+        UBaseHUDWidget* HUD = PC->GetHUD();
+		if (HUD)
+		{
+			HUD->SetStaminaRegenRate(StaminaRegenRate);
+		}
     }
 }
 
@@ -254,6 +288,10 @@ void ABasePlayerState::CharacterLevelChanged(const FOnAttributeChangeData &Data)
     ABasePlayerController* PC = Cast<ABasePlayerController>(GetOwner());
     if(PC)
     {
-        
+        UBaseHUDWidget* HUD = PC->GetHUD();
+		if (HUD)
+		{
+			HUD->SetCharacterLevel(CharacterLevel);
+		}
     }
 }

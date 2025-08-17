@@ -11,3 +11,8 @@ void UWidgetControllerObject::SetWidgetControllerParams(const FWidgetControllerP
     AbilitySystemComponent = WCParams.AbilitySystemComponent;
     AttributeSet = WCParams.AttributeSet;
 }
+
+void UWidgetControllerObject::BroadcastInitialValues()
+{
+
+}

@@ -149,10 +149,11 @@ void ALearnCharacter::OnRep_PlayerState()
 		ABasePlayerController* PC = Cast<ABasePlayerController>(GetController());
 		if(PC)
 		{
-			if(ABaseHUD* BaseHUD = Cast<ABaseHUD>(PC->GetHUD()))
+			PC->CreateHUD();
+			/* if(ABaseHUD* BaseHUD = Cast<ABaseHUD>(PC->GetHUD()))
 			{
 				BaseHUD->InitOverlay(PC, PS, AbilitySystemComponent.Get(), BaseAttributeSet.Get());
-			}
+			} */
 		}
 
 	}
@@ -256,10 +257,11 @@ void ALearnCharacter::PossessedBy(AController *NewController)
 		ABasePlayerController* PC = Cast<ABasePlayerController>(GetController());
 		if(PC)
 		{
-			if(ABaseHUD* BaseHUD = Cast<ABaseHUD>(PC->GetHUD()))
+			PC->CreateHUD();
+			/* if(ABaseHUD* BaseHUD = Cast<ABaseHUD>(PC->GetHUD()))
 			{
 				BaseHUD->InitOverlay(PC, PS, AbilitySystemComponent.Get(), BaseAttributeSet.Get());
-			}
+			} */
 		}
 	}
 }
