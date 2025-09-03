@@ -89,7 +89,7 @@ void ALearnCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ALearnCharacter::Look);
-		BindASCInput();
+		//BindASCInput();
 	}
 	else
 	{
